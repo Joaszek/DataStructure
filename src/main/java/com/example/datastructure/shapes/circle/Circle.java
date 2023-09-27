@@ -1,14 +1,15 @@
 package com.example.datastructure.shapes.circle;
 
 import com.example.datastructure.shapes.ShapesMethod;
+import com.example.datastructure.shapes.rectangle.Rectangle;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Circle extends javafx.scene.shape.Circle implements ShapesMethod {
 
-    public Circle(double x, double y, double radius) {
-        this.setCenterX(x);
-        this.setCenterY(y);
-        this.setRadius(radius);
+
+
+    public Circle() {
 
         this.setOnMouseClicked(event -> {
 
@@ -24,8 +25,9 @@ public class Circle extends javafx.scene.shape.Circle implements ShapesMethod {
     }
 
     @Override
-    public void copy() {
+    public Rectangle copy() {
 
+        return null;
     }
 
     @Override
@@ -41,6 +43,13 @@ public class Circle extends javafx.scene.shape.Circle implements ShapesMethod {
     @Override
     public void move_forward() {
 
+    }
+
+    @Override
+    public void draw(GraphicsContext gc, double startX, double endX, double startY, double endY) {
+        double radius = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+        gc.setFill(Color.RED);
+        gc.fillOval(startX - radius, startY - radius, 2 * radius, 2 * radius);
     }
 }
 

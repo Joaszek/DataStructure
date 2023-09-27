@@ -1,15 +1,12 @@
 package com.example.datastructure.shapes.rectangle;
 
 import com.example.datastructure.shapes.ShapesMethod;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Rectangle extends javafx.scene.shape.Rectangle implements ShapesMethod {
 
-    public Rectangle(double x, double y, double width, double height) {
-        this.setX(x);
-        this.setY(y);
-        this.setWidth(width);
-        this.setHeight(height);
+    public Rectangle() {
 
         this.setOnMouseClicked(event ->
                 System.out.println("Rectangle has been clicked"));
@@ -23,8 +20,9 @@ public class Rectangle extends javafx.scene.shape.Rectangle implements ShapesMet
     }
 
     @Override
-    public void copy() {
+    public Rectangle copy() {
 
+        return this;
     }
 
     @Override
@@ -40,5 +38,11 @@ public class Rectangle extends javafx.scene.shape.Rectangle implements ShapesMet
     @Override
     public void move_forward() {
 
+    }
+
+    @Override
+    public void draw(GraphicsContext gc, double startX, double endX, double startY, double endY) {
+        gc.setFill(Color.BLUE);
+        gc.fillRect(startX, startY, endX - startX, endY - startY);
     }
 }

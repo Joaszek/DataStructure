@@ -1,15 +1,14 @@
 package com.example.datastructure.shapes.line;
 
 import com.example.datastructure.shapes.ShapesMethod;
+import com.example.datastructure.shapes.rectangle.Rectangle;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Line extends javafx.scene.shape.Line implements ShapesMethod {
 
 
-    public Line(double x1, double y1, double x2, double y2) {
-        this.setStartX(x1);
-        this.setStartY(y1);
-        this.setEndX(x2);
-        this.setEndY(y2);
+    public Line() {
+
         this.setStrokeWidth(50);
 
         this.setOnMouseClicked(mouseEvent ->
@@ -23,8 +22,9 @@ public class Line extends javafx.scene.shape.Line implements ShapesMethod {
     }
 
     @Override
-    public void copy() {
+    public Rectangle copy() {
 
+        return null;
     }
 
     @Override
@@ -41,4 +41,10 @@ public class Line extends javafx.scene.shape.Line implements ShapesMethod {
     public void move_forward() {
 
     }
+
+    @Override
+    public void draw(GraphicsContext gc, double startX, double endX, double startY, double endY) {
+        //add drawing line
+    }
+
 }
